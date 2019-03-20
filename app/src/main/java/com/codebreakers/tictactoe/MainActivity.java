@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -78,9 +80,18 @@ private void furtherOperations() {
                 View dialogView = LayoutInflater.from(MainActivity.this).inflate(R.layout.none_selected_dialog, viewGroup, false);
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setView(dialogView);
-                AlertDialog alertDialog;
-                alertDialog  = builder.create();
-                alertDialog.show();
+                final AlertDialog alertDialogNone;
+                alertDialogNone  = builder.create();
+                alertDialogNone.show();
+
+                final Timer t = new Timer();
+                t.schedule(new TimerTask() {
+                    public void run() {
+                        alertDialogNone.dismiss(); // when the task active then close the dialog
+                        t.cancel(); // also just top the timer thread, otherwise, you may receive a crash report
+                    }
+                }, 2000); // after 2 second (or 2000 miliseconds), the task will be active.
+
             }
             else {
 
