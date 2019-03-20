@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name='colorGreaterTwenty'>#76d119</color>
+    <color name="colorGreaterEighteen">	#8dde28</color>
+    <color name="colorGreaterSixteen">#9dea3c</color>
+    <color name="colorGreaterFourteen">#ecd600</color>
+    <color name="colorGreaterTwelve">#ffe85b</color>
+    <color name="colorGreaterTen">#ffbf00</color>
+    <color name="colorGreaterSix">#ec5800</color>
+    <color name="colorLessThanFive">#e62020</color>
+</resources>
