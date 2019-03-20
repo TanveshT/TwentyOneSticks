@@ -2,6 +2,7 @@ package com.codebreakers.tictactoe;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.os.CountDownTimer;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -24,12 +25,72 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView mainlist;
+    TextView mainlist,textViewCounter,displayCounterMessage;
     Button btn_Start,btn_Remove;
     RadioGroup inputRadioGroup;
-    TextView txtCount;
+    TextView txtCount,textViewYourTurn;
     int Number_of_sticks;
     static List<String> main_String= new ArrayList<String>();
+
+    CountDownTimer mCountDownTimer = new CountDownTimer(5 * 1000, 1000) {
+        @Override
+        public void onTick(long millisUntilFinished) {
+            //this will be called every second.
+            textViewCounter.setText("" + (millisUntilFinished/1000));
+        }
+
+        @Override
+        public void onFinish() {
+
+
+            for (int i = 0; i < (5 - Number_of_sticks); i++) {
+                main_String.remove("| ");
+            }
+
+            mainlist.setText(main_String.toString()
+                    .replace(",", "")
+                    .replace("[", "")
+                    .replace("]", "")
+                    .trim());
+
+            txtCount.setText("" + main_String.size());
+
+
+            ColorCheck(mainlist);
+            ColorCheck(txtCount);
+            Number_of_sticks = 0;
+
+            if(main_String.size()==1) {
+
+                ViewGroup viewGroup = findViewById(android.R.id.content);
+                View dialogView = LayoutInflater.from(MainActivity.this).inflate(R.layout.my_dialog, viewGroup, false);
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setView(dialogView);
+                final AlertDialog alertDialog;
+                alertDialog  = builder.create();
+                alertDialog.show();
+
+                Button button = dialogView.findViewById(R.id.buttonOk);
+
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        reset();
+                        alertDialog.dismiss();
+                    }
+                });
+
+            }
+
+            textViewYourTurn.setVisibility(View.VISIBLE);
+            textViewCounter.setVisibility(View.INVISIBLE);
+            displayCounterMessage.setVisibility(View.INVISIBLE);
+            btn_Remove.setEnabled(true);
+
+
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +113,12 @@ public class MainActivity extends AppCompatActivity {
         btn_Remove = findViewById(R.id.btnRemove);
         inputRadioGroup = findViewById(R.id.Radio_SelectionGroup);
         txtCount = findViewById(R.id.CountDisplay);
+        textViewCounter = findViewById(R.id.txtCounter);
+        displayCounterMessage = findViewById(R.id.DisplayMobileChoosing);
+        textViewYourTurn = findViewById(R.id.txtYourTurn);
 
+        textViewCounter.setVisibility(View.INVISIBLE);
+        displayCounterMessage.setVisibility(View.INVISIBLE);
         btn_Remove.setVisibility(View.INVISIBLE);
         inputRadioGroup.setVisibility(View.INVISIBLE);
 
@@ -113,41 +179,15 @@ private void furtherOperations() {
                                 .replace("]", "")
                                 .trim());
 
-                        Toast.makeText(MainActivity.this, "NOW MOBILE IS REMOVING STICKS", Toast.LENGTH_SHORT).show();
-
-                        for (int i = 0; i < (5 - Number_of_sticks); i++) {
-                            main_String.remove("| ");
-                        }
-
-                        mainlist.setText(main_String.toString()
-                                .replace(",", "")
-                                .replace("[", "")
-                                .replace("]", "")
-                                .trim());
-
-                        txtCount.setText("" + main_String.size());
-                        ColorCheck(txtCount);
-                        ColorCheck(mainlist);
-
-                        Number_of_sticks = 0;
-
-                        if(main_String.size()==1) {
-
-                            ViewGroup viewGroup = findViewById(android.R.id.content);
-                            View dialogView = LayoutInflater.from(MainActivity.this).inflate(R.layout.my_dialog, viewGroup, false);
-                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                            builder.setView(dialogView);
-                            AlertDialog alertDialog;
-                            alertDialog  = builder.create();
-                            alertDialog.show();
-                            reset();
-
-                        }
-
                         txtCount.setText("" + main_String.size());
 
                         inputRadioGroup.clearCheck();
 
+                        textViewYourTurn.setVisibility(View.INVISIBLE);
+                        textViewCounter.setVisibility(View.VISIBLE);
+                        displayCounterMessage.setVisibility(View.VISIBLE);
+                        btn_Remove.setEnabled(false);
+                        mCountDownTimer.start();
 
                     } else {
                         //Enter the Custom Dialog box for Values between 1-4 accepted only
@@ -184,6 +224,8 @@ private void furtherOperations() {
                 .replace("[", "")
                 .replace("]", "")
                 .trim());
+
+        txtCount.setText("" + main_String.size());
 
         mainlist.setTextColor(getResources().getColor(R.color.colorGreaterTwenty));
         txtCount.setTextColor(getResources().getColor(R.color.colorGreaterTwenty));

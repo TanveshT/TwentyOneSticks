@@ -45,37 +45,82 @@
         android:layout_gravity="center"
         android:layout_marginTop="30dp"/>
 
-
-    <RadioGroup
-        android:id="@+id/Radio_SelectionGroup"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        >
 
-        <RadioButton
-            android:id="@+id/radio_1"
+        <TextView
+            android:id="@+id/txtYourTurn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"/>
+            android:layout_gravity="center"
+            android:padding="20dp"
+            android:text="YOUR TURN"
+            android:textColor="#ffffff"
+            android:textSize="17dp"
+            android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/radio_2"
+        <RadioGroup
+            android:id="@+id/Radio_SelectionGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2"/>
+            android:gravity="center"
+            android:layout_marginStart="20pt"
+            android:layout_marginLeft="20pt">
 
-        <RadioButton
-            android:id="@+id/radio_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3"/>
+            <RadioButton
+                android:id="@+id/radio_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1" />
 
-        <RadioButton
-            android:id="@+id/radio_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4"/>
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/radio_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2" />
+
+            <RadioButton
+                android:id="@+id/radio_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3" />
+
+            <RadioButton
+                android:id="@+id/radio_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/DisplayMobileChoosing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Timer:\nMobile Choosing!"
+                android:textAlignment="center"
+                android:textColor="#f0ff"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/txtCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#ff0000"
+                android:text="5"
+                android:textSize="50dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnRemove"
