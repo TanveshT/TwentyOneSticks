@@ -30,7 +30,11 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup inputRadioGroup;
     TextView txtCount,textViewYourTurn;
     int Number_of_sticks;
-    static List<String> main_String= new ArrayList<String>();
+    static List<String> main_String= new ArrayList<String>() {{
+        add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");
+        add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");
+        add("| ");
+    }};
 
     CountDownTimer mCountDownTimer = new CountDownTimer(5 * 1000, 1000) {
         @Override
@@ -99,10 +103,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
 
-
+/*
         for(int i = 0; i<21; i++) {
             main_String.add("| ");
-        }
+        }*/
 
         mainlist = findViewById(R.id.MainList);
         mainlist.setText(main_String.toString()
