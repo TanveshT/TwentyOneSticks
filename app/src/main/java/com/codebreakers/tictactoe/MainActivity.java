@@ -98,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
+
+
         for(int i = 0; i<21; i++) {
             main_String.add("| ");
         }
@@ -124,6 +126,24 @@ public class MainActivity extends AppCompatActivity {
         displayCounterMessage.setVisibility(View.INVISIBLE);
         btn_Remove.setVisibility(View.INVISIBLE);
         inputRadioGroup.setVisibility(View.INVISIBLE);
+
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+        View dialogView = LayoutInflater.from(MainActivity.this).inflate(R.layout.rules_dialog, viewGroup, false);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setView(dialogView);
+        final AlertDialog alertDialog;
+        alertDialog  = builder.create();
+        alertDialog.setCancelable(false);
+        alertDialog.show();
+
+        Button button = dialogView.findViewById(R.id.buttonOkOnMainDialog);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
 
         btn_Start.setOnClickListener(new View.OnClickListener() {
             @Override
