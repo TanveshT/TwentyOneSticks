@@ -51,6 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Choose Number of Sticks:-"
+        android:textSize="18dp"
         android:layout_gravity="center"
         android:textColor="#ffff00"/>
     <LinearLayout
