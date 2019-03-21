@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         add("| ");
     }};
 
-    CountDownTimer mCountDownTimer = new CountDownTimer(5 * 1000, 1000) {
+    CountDownTimer mCountDownTimer = new CountDownTimer(3 * 1000, 1000) {
         @Override
         public void onTick(long millisUntilFinished) {
             //this will be called every second.
