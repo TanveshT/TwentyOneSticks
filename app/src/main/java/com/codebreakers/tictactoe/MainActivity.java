@@ -25,7 +25,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView mainlist,textViewCounter,displayCounterMessage;
+    TextView mainlist,textViewCounter,displayCounterMessage,textViewChooseNumberOfSticks;
     Button btn_Start,btn_Remove;
     RadioGroup inputRadioGroup;
     TextView txtCount,textViewYourTurn;
@@ -116,7 +116,10 @@ public class MainActivity extends AppCompatActivity {
         textViewCounter = findViewById(R.id.txtCounter);
         displayCounterMessage = findViewById(R.id.DisplayMobileChoosing);
         textViewYourTurn = findViewById(R.id.txtYourTurn);
+        textViewChooseNumberOfSticks = findViewById(R.id.txtChooseNumberOfSticks);
 
+        textViewChooseNumberOfSticks.setVisibility(View.INVISIBLE);
+        textViewYourTurn.setVisibility(View.INVISIBLE);
         textViewCounter.setVisibility(View.INVISIBLE);
         displayCounterMessage.setVisibility(View.INVISIBLE);
         btn_Remove.setVisibility(View.INVISIBLE);
@@ -125,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
         btn_Start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                textViewYourTurn.setVisibility(View.VISIBLE);
+                textViewChooseNumberOfSticks.setVisibility(View.VISIBLE);
                 btn_Start.setVisibility(View.INVISIBLE);
                 btn_Remove.setVisibility(View.VISIBLE);
                 inputRadioGroup.setVisibility(View.VISIBLE);
