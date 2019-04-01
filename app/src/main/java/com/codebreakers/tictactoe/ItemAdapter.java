@@ -44,6 +44,7 @@ public class ItemAdapter extends RecyclerView.Adapter{
 
         viewHolder.textViewTitle.setText(cardItem.getTitle());
         viewHolder.imageView.setImageDrawable(context.getResources().getDrawable(cardItem.getImage()));
+        viewHolder.imageView.setAlpha(175);
 
         viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override

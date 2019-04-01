@@ -205,7 +205,8 @@ public class single_player extends AppCompatActivity {
                     RadioButton radioButton = findViewById(radioButtonChoosen);
                     Number_of_sticks = Integer.parseInt((String) radioButton.getText());
 
-                    if(main_String.size()!=1) { //Improve Logic Over here as the input is always going to be  between 1-4
+                    if(main_String.size()!=1) {
+                        //Improve Logic Over here as the input is always going to be  between 1-4
                         if (Number_of_sticks == 1 || Number_of_sticks == 2 || Number_of_sticks == 3 || Number_of_sticks == 4) {
 
                             for (int i = 0; i < Number_of_sticks; i++) {
