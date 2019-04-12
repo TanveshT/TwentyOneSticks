@@ -12,55 +12,64 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#1e215a"
         android:padding="15dp"
         android:text="21 STICKS GAME"
-        android:textSize="40dp"
         android:textAlignment="center"
-        android:layout_gravity="center"
         android:textColor="#aab7e6"
-        android:background="#1e215a"/>
+        android:textSize="40dp"
+        android:typeface="normal"
+        app:fontFamily="@font/patrick_hand" />
 
     <TextView
+        android:autoSizeTextType="uniform"
         android:id="@+id/MainList"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="x"
-        android:layout_margin="10dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:layout_marginTop="50dp"
-        android:textSize="25dp"
-        android:padding="10dp"
         android:background="#474994"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="| | | | | | | | | | | | | | | | | | | | | "
         android:textColor="	#00ff00"
-        android:textStyle="bold"/>
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
 
     <Button
         android:id="@+id/btnStart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Start"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:fontFamily="@font/patrick_hand"
         android:background="#96ceb4"
         android:textColor="#000000"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="0dp"/>
 
 
     <TextView
         android:id="@+id/txtChooseNumberOfSticks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose Number of Sticks:-"
-        android:textSize="18dp"
         android:layout_gravity="center"
-        android:textColor="#ffff00"/>
+        android:text="Choose Number of Sticks:-"
+        android:textColor="#ffff00"
+        android:textSize="24dp"
+        app:fontFamily="@font/patrick_hand" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         >
+
         <TextView
             android:id="@+id/txtPlayerOne"
-            android:layout_width="wrap_content"
+            android:layout_width="142dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
@@ -68,7 +77,8 @@
             android:text="PLAYER 1's\nTURN"
             android:textColor="#ffffff"
             android:textSize="17dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:fontFamily="@font/patrick_hand" />
 
         <RadioGroup
             android:id="@+id/Radio_SelectionGroup"
@@ -79,77 +89,180 @@
             android:layout_marginLeft="20pt">
 
             <RadioButton
+                android:textSize="20dp"
+                android:fontFamily="@font/patrick_hand"
                 android:id="@+id/radio_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1" />
 
             <RadioButton
+                android:textSize="20dp"
+                android:fontFamily="@font/patrick_hand"
                 android:id="@+id/radio_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2" />
 
             <RadioButton
+                android:textSize="20dp"
+                android:fontFamily="@font/patrick_hand"
                 android:id="@+id/radio_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3" />
 
             <RadioButton
+                android:textSize="20dp"
+                android:fontFamily="@font/patrick_hand"
                 android:id="@+id/radio_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4" />
         </RadioGroup>
 
-            <TextView
-                android:id="@+id/txtPlayerTwo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textColor="#ff0000"
-                android:text="PLAYER 2's \n TURN"
-                android:textSize="17dp"
-                android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/txtPlayerTwo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="PLAYER 2's \n TURN"
+            android:textColor="#ff0000"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/patrick_hand" />
 
     </LinearLayout>
 
     <Button
+        android:fontFamily="@font/patrick_hand"
         android:id="@+id/btnRemove"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="REMOVE STICKS"
-        android:layout_margin="20dp"
-        android:background="#96ceb4"
-        android:textColor="#000000"
-        android:padding="10dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#96ceb4"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:text="REMOVE STICKS"
+        android:textColor="#000000" />
 
     <TextView
+        android:fontFamily="@font/patrick_hand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="REMAINING STICKS:-"
         android:layout_gravity="center"
         android:layout_marginTop="3dp"
         android:background="#474994"
-        android:textSize="25dp"
+        android:textSize="30dp"
         android:padding="10dp"
         android:textStyle="italic"
         android:textColor="#ffffff" />
 
-    <TextView
-        android:id="@+id/CountDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#00ff00"
-        android:text="21"
-        android:padding="30dp"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:background="#474994"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textview_userPicks_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="PLAYER 1 PICKS"
+                android:textColor="#fff"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textview_userPicks_sticks"
+                android:padding="5dp"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:background="#474994"
+                android:gravity="center"
+                android:autoSizeTextType="uniform"
+                android:textColor="	#00ff00"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textview_userPicks_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="10"
+                android:textColor="#fff"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/CountDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="#474994"
+            android:fontFamily="@font/patrick_hand"
+            android:padding="20dp"
+            android:text="21"
+            android:textColor="#00ff00"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textview_mobilePicks_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="PLAYER 2 PICKS"
+                android:textColor="#f00"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textview_mobilePicks_sticks"
+                android:padding="5dp"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:background="#474994"
+                android:gravity="center"
+                android:autoSizeTextType="uniform"
+                android:textColor="	#00ff00"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/textview_mobilePicks_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="10"
+                android:textColor="#f00"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

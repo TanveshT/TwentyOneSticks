@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".splash_screen"
+    android:background="#4868bc">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txt_splash_screen_id"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/patrick_hand"
+            android:textStyle="bold"
+            android:text="21 STICKS GAME"
+            android:textSize="50dp"
+            android:textColor="#FFD700"
+            android:background="#1e215a"
+            android:padding="10dp"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -3,6 +3,7 @@ package com.codebreakers.tictactoe;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.PersistableBundle;
 import android.provider.Settings;
@@ -31,7 +32,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     List<CardItems> displayList;
-
+    TextView mainHeading,card_title_txt;
     RecyclerView recyclerView;
 
     @Override
@@ -49,9 +50,12 @@ public class MainActivity extends AppCompatActivity {
 
         displayList.add(new CardItems(1,"SINGLE PLAYER",R.drawable.single_player));
         displayList.add(new CardItems(2,"DUAL PLAYER",R.drawable.dual_player));
+        displayList.add(new CardItems(3,"ABOUT US",R.drawable.about_3));
+
 
         ItemAdapter adapter = new ItemAdapter(this,displayList);
 
         recyclerView.setAdapter(adapter);
+
     }
 }

@@ -1,6 +1,8 @@
 package com.codebreakers.tictactoe;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,23 +21,34 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class dual_player extends AppCompatActivity {
-    TextView mainlist,textPlayerTwo,textViewChooseNumberOfSticks;
+    TextView mainlist,textPlayerTwo,textViewChooseNumberOfSticks,textViewUserPicks_title,textViewUserPicks_sticks,textViewUserPicks_count,textViewMobilePicks_title,textViewMobilePicks_sticks,textViewMobilePicks_count;
     Button btn_Start,btn_Remove;
     TextView txtCount,textPlayerOne;
     RadioGroup inputRadioGroup;
     int Number_of_sticks;
-    static List<String> main_String= new ArrayList<String>() {{
-        add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");
-        add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");
-        add("| ");
-    }};
-
+    static List<String> main_String;
+    List<String> playerone_picks_string,playertwo_picks_string;
+    RadioButton radioButton4;
+    RadioButton radioButton3;
+    RadioButton radioButton2;
+    RadioButton radioButton1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_player);
         getSupportActionBar().hide();
+
+        main_String = new ArrayList<String>() {{
+            add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");
+            add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");
+            add("| ");
+        }};
+
+        playerone_picks_string = new ArrayList<>();
+        playertwo_picks_string = new ArrayList<>();
+
+
 
         mainlist = findViewById(R.id.MainList);
         mainlist.setText(main_String.toString()
@@ -51,12 +64,34 @@ public class dual_player extends AppCompatActivity {
         textPlayerTwo = findViewById(R.id.txtPlayerTwo);
         textPlayerOne = findViewById(R.id.txtPlayerOne);
         textViewChooseNumberOfSticks = findViewById(R.id.txtChooseNumberOfSticks);
+        radioButton4 = findViewById(R.id.radio_4);
+        radioButton3 = findViewById(R.id.radio_3);
+        radioButton2 = findViewById(R.id.radio_2);
+        radioButton1 = findViewById(R.id.radio_1);
+
+        textViewMobilePicks_sticks = findViewById(R.id.textview_mobilePicks_sticks);
+        textViewMobilePicks_title = findViewById(R.id.textview_mobilePicks_title);
+        textViewMobilePicks_count = findViewById(R.id.textview_mobilePicks_count);
+        textViewUserPicks_count = findViewById(R.id.textview_userPicks_count);
+        textViewUserPicks_sticks = findViewById(R.id.textview_userPicks_sticks);
+        textViewUserPicks_title = findViewById(R.id.textview_userPicks_title);
+
+        textViewUserPicks_title.setVisibility(View.INVISIBLE);
+        textViewUserPicks_count.setVisibility(View.INVISIBLE);
+        textViewUserPicks_sticks.setVisibility(View.INVISIBLE);
+        textViewMobilePicks_title.setVisibility(View.INVISIBLE);
+        textViewMobilePicks_count.setVisibility(View.INVISIBLE);
+        textViewMobilePicks_sticks.setVisibility(View.INVISIBLE);
+
 
         textViewChooseNumberOfSticks.setVisibility(View.INVISIBLE);
         textPlayerOne.setVisibility(View.INVISIBLE);
         textPlayerTwo.setVisibility(View.INVISIBLE);
         btn_Remove.setVisibility(View.INVISIBLE);
         inputRadioGroup.setVisibility(View.INVISIBLE);
+
+
+
 
 
         ViewGroup viewGroup = findViewById(android.R.id.content);
@@ -68,10 +103,9 @@ public class dual_player extends AppCompatActivity {
         alertDialog.setCancelable(false);
         alertDialog.show();
 
+        Button buttonok = dialogView.findViewById(R.id.buttonOkOnMainDialog);
 
-        Button button = dialogView.findViewById(R.id.buttonOkOnMainDialog);
-
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 alertDialog.dismiss();
@@ -83,12 +117,37 @@ public class dual_player extends AppCompatActivity {
             public void onClick(View view) {
                 textPlayerOne.setVisibility(View.VISIBLE);
                 textViewChooseNumberOfSticks.setVisibility(View.VISIBLE);
-                btn_Start.setVisibility(View.INVISIBLE);
+                btn_Start.setVisibility(View.GONE);
                 btn_Remove.setVisibility(View.VISIBLE);
                 inputRadioGroup.setVisibility(View.VISIBLE);
+                textViewUserPicks_title.setVisibility(View.VISIBLE);
+                textViewUserPicks_count.setVisibility(View.VISIBLE);
+                textViewUserPicks_sticks.setVisibility(View.VISIBLE);
+                textViewMobilePicks_title.setVisibility(View.VISIBLE);
+                textViewMobilePicks_count.setVisibility(View.VISIBLE);
+                textViewMobilePicks_sticks.setVisibility(View.VISIBLE);
+
+                textViewUserPicks_sticks.setText(playerone_picks_string.toString()
+                        .replace(",", "")
+                        .replace("[", "")
+                        .replace("]", "")
+                        .trim());
+
+                textViewUserPicks_count.setText("" + playerone_picks_string.size());
+
+                textViewMobilePicks_sticks.setText(playerone_picks_string.toString()
+                        .replace(",", "")
+                        .replace("[", "")
+                        .replace("]", "")
+                        .trim());
+
+                textViewMobilePicks_count.setText("" + playertwo_picks_string.size());
+
                 furtherOperations();
             }
         });
+
+
     }
 
     private void furtherOperations() {
@@ -128,6 +187,13 @@ public class dual_player extends AppCompatActivity {
 
                     for (int i = 0; i < Number_of_sticks; i++) {
                         main_String.remove("| ");
+                        if(textPlayerOne.getVisibility() == View.VISIBLE) {
+                            playerone_picks_string.add("|");
+                        }
+                        if(textPlayerTwo.getVisibility() == View.VISIBLE) {
+                            playertwo_picks_string.add("|");
+                        }
+
                     }
                     mainlist.setText(main_String.toString()
                             .replace(",", "")
@@ -135,12 +201,42 @@ public class dual_player extends AppCompatActivity {
                             .replace("]", "")
                             .trim());
 
+                    textViewUserPicks_sticks.setText(playerone_picks_string.toString()
+                            .replace(",", "")
+                            .replace("[", "")
+                            .replace("]", "")
+                            .trim());
+
+                    textViewUserPicks_count.setText("" + playerone_picks_string.size());
+
+
+                    textViewMobilePicks_sticks.setText(playertwo_picks_string.toString()
+                            .replace(",", "")
+                            .replace("[", "")
+                            .replace("]", "")
+                            .trim());
+
+                    txtCount.setText("" + main_String.size());
+                    textViewMobilePicks_count.setText("" + playertwo_picks_string.size());
+
+
                     txtCount.setText("" + main_String.size());
 
                     inputRadioGroup.clearCheck();
 
                     switchUser();
                     checkForLastStick();
+
+                    if(main_String.size() < 5) {
+                        radioButton4.setVisibility(View.INVISIBLE);
+                        if(main_String.size() < 4) {
+                            radioButton3.setVisibility(View.INVISIBLE);
+                            if(main_String.size() < 3) {
+                                radioButton2.setVisibility(View.INVISIBLE);
+                            }
+                        }
+
+                    }
 
                 }
 
@@ -154,15 +250,15 @@ public class dual_player extends AppCompatActivity {
             x.setTextColor(getResources().getColor(R.color.colorGreaterTwenty));
         }
 
-        if(main_String.size() == 16) {
+        if(main_String.size() > 16 && main_String.size() < 20) {
             x.setTextColor(getResources().getColor(R.color.colorGreaterFourteen));
         }
 
-        if(main_String.size() == 11) {
+        if(main_String.size() > 11 && main_String.size() <16) {
             x.setTextColor(getResources().getColor(R.color.colorGreaterTen));
         }
 
-        if(main_String.size() == 6) {
+        if(main_String.size() < 8) {
             x.setTextColor(getResources().getColor(R.color.colorLessThanFive));
         }
 
@@ -200,6 +296,7 @@ public class dual_player extends AppCompatActivity {
                 });
 
                 Button button = dialogView.findViewById(R.id.buttonOk);
+                Button buttonMainMenu = dialogView.findViewById(R.id.buttonMainMenu);
 
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -208,6 +305,14 @@ public class dual_player extends AppCompatActivity {
                         alertDialog.dismiss();
                     }
                 });
+
+                buttonMainMenu.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                });
+
             } else {
                 txtFailureDialog.setText("PLAYER TWO FAILS");
                 builder.setView(dialogView);
@@ -238,9 +343,30 @@ public class dual_player extends AppCompatActivity {
 
     private void reset() {
 
-        for(int i = 0; i<20; i++) {
-            main_String.add("| ");
-        }
+        main_String = new ArrayList<String>() {{
+            add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");
+            add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");add("| ");
+            add("| ");
+        }};
+
+        playerone_picks_string = new ArrayList<>();
+        playertwo_picks_string = new ArrayList<>();
+
+        textViewUserPicks_sticks.setText(playerone_picks_string.toString()
+                .replace(",", "")
+                .replace("[", "")
+                .replace("]", "")
+                .trim());
+
+        textViewUserPicks_count.setText("" + playerone_picks_string.size());
+
+        textViewMobilePicks_sticks.setText(playerone_picks_string.toString()
+                .replace(",", "")
+                .replace("[", "")
+                .replace("]", "")
+                .trim());
+
+        textViewMobilePicks_count.setText("" + playertwo_picks_string.size());
 
         mainlist.setText(main_String.toString()
                 .replace(",", "")
@@ -252,6 +378,13 @@ public class dual_player extends AppCompatActivity {
 
         mainlist.setTextColor(getResources().getColor(R.color.colorGreaterTwenty));
         txtCount.setTextColor(getResources().getColor(R.color.colorGreaterTwenty));
+
+        radioButton1.setVisibility(View.VISIBLE);
+        radioButton2.setVisibility(View.VISIBLE);
+        radioButton3.setVisibility(View.VISIBLE);
+        radioButton4.setVisibility(View.VISIBLE);
+
+
     }
 
 }

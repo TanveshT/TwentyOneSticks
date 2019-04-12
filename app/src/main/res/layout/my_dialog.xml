@@ -43,16 +43,33 @@
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-        <Button
-            android:id="@+id/buttonOk"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/button_background"
-            android:text="Ok"
-            android:textColor="@color/colorPrimary" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/buttonOk"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/button_background"
+                android:text="Ok"
+                android:textColor="@color/colorPrimary" />
+
+            <Button
+                android:id="@+id/buttonMainMenu"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/button_background"
+                android:text="Main Menu"
+                android:textColor="@color/colorPrimary" />
+
+        </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>

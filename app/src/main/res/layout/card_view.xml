@@ -22,12 +22,14 @@
             />
 
         <TextView
+            android:textStyle="bold"
+            android:fontFamily="@font/patrick_hand"
             android:id="@+id/card_title_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
             android:text="text"
-            android:textSize="25dp"
+            android:textSize="50dp"
             android:layout_gravity="bottom"
             android:layout_margin="5dp"
             />
