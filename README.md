@@ -30,4 +30,4 @@ Splash Screen            |  Instructions Pop Up
 
 You-Fail             |  Timer
 :-------------------------:|:-------------------------:
-![](/ImagesForReadme/you-fail.png)  |  ![](/ImagesForReadme/timer.png)
+![](/ImagesForReadme/you-fail.png)  |  ![](/ImagesForReadme/time.png)
