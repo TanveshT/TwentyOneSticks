@@ -8,17 +8,20 @@
         android:label="21 STICKS"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".splash_screen"><intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        android:theme="@style/AppTheme"
+        android:hardwareAccelerated="true"
+       >
+        <activity android:name=".AboutUs"></activity>
+        <activity android:name=".splash_screen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".dual_player" />
         <activity android:name=".single_player" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

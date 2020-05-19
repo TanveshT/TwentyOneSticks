@@ -2,6 +2,8 @@
 
 ## About
 
+*Project Created:* March 2019
+
 This is an android application based on the famous game called [21 Sticks](https://en.wikipedia.org/wiki/Nim) also known as Nim.
 
 It consists of 2 player modes:
@@ -18,3 +20,14 @@ I added:
 
 ## User Interface
 
+Main Page             |  Inside Game
+:-------------------------:|:-------------------------:
+![](/ImagesForReadme/main-page.png)  |  ![](/ImagesForReadme/inside-game.png)
+
+Splash Screen            |  Instructions Pop Up
+:-------------------------:|:-------------------------:
+![](/ImagesForReadme/splash-screen.png)  |  ![](/ImagesForReadme/instructions.png)
+
+You-Fail             |  Timer
+:-------------------------:|:-------------------------:
+![](/ImagesForReadme/you-fail.png)  |  ![](/ImagesForReadme/timer.png)

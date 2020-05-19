@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         displayList.add(new CardItems(2,"DUAL PLAYER",R.drawable.dual_player));
         displayList.add(new CardItems(3,"ABOUT US",R.drawable.about_3));
 
-
         ItemAdapter adapter = new ItemAdapter(this,displayList);
 
         recyclerView.setAdapter(adapter);

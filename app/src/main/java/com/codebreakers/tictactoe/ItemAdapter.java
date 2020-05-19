@@ -55,6 +55,9 @@ public class ItemAdapter extends RecyclerView.Adapter{
                 else if(position==1) {
                     context.startActivity(new Intent(context,dual_player.class));
                 }
+                else if(position==2) {
+                    context.startActivity(new Intent(context,AboutUs.class));
+                }
             }
         });
 

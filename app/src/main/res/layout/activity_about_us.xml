@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUs"
+    android:elevation="2dp"
+    android:orientation="vertical"
+    android:background="#e9ebee">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/my_shape"
+        android:orientation="horizontal"
+        android:elevation="2dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:text="About Us"
+            android:textSize="30dp"
+            android:textColor="#fff"
+            android:fontFamily="@font/patrick_hand"
+            />
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="25dp"
+        android:background="#fff"
+        app:cardCornerRadius="20dp"
+        android:elevation="10dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Company Name: \nPRANK-I SYSTEMS PVT LTD"
+                    android:autoSizeTextType="uniform"
+                    android:textStyle="bold"
+                    android:textSize="18dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="20dp">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/pisylogo"
+                        />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="140dp"
+                        android:layout_height="144dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginRight="20dp"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:id="@+id/imgCompanyFacebook"
+                                    android:padding="20dp"
+                                    android:layout_width="75dp"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/f"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/imgCompanyInstagram"
+                                    android:layout_width="75dp"
+                                    android:layout_height="match_parent"
+                                    android:padding="20dp"
+                                    android:src="@drawable/instagram" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:id="@+id/imgCompanyGmail"
+                                    android:padding="20dp"
+                                    android:layout_width="75dp"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/gmail"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/imgCompanyLocation"
+                                    android:layout_width="75dp"
+                                    android:layout_height="match_parent"
+                                    android:padding="15dp"
+                                    android:src="@drawable/location4" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+
+                <TextView
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Developer Name: \nTanvesh Takawale"
+                    android:autoSizeTextType="uniform"
+                    android:textStyle="bold"
+                    android:textSize="18dp"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="20dp">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/profile2"
+                        />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="140dp"
+                        android:layout_height="144dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginRight="20dp">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:id="@+id/imgDeveloperFacebook"
+                                    android:layout_width="75dp"
+                                    android:layout_height="match_parent"
+                                    android:padding="20dp"
+                                    android:src="@drawable/f" />
+
+                                <ImageView
+                                    android:id="@+id/imgDeveloperInstagram"
+                                    android:layout_width="75dp"
+                                    android:layout_height="match_parent"
+                                    android:padding="20dp"
+                                    android:src="@drawable/instagram" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="75dp">
+
+                                <ImageView
+                                    android:id="@+id/imgDeveloperGmail"
+                                    android:layout_width="75dp"
+                                    android:layout_height="match_parent"
+                                    android:padding="20dp"
+                                    android:src="@drawable/gmail" />
+
+                                <ImageView
+                                    android:id="@+id/imgDeveloperLinkedin"
+                                    android:layout_width="75dp"
+                                    android:layout_height="match_parent"
+                                    android:padding="20dp"
+                                    android:src="@drawable/linkedin" />
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+   </android.support.v7.widget.CardView>
+</RelativeLayout>
